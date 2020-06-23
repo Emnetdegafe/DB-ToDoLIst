@@ -12,6 +12,13 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: "Lily",
+          email: "Lily@lil.com",
+          phone: 234567,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
 
       {}
