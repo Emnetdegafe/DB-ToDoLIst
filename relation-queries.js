@@ -1,4 +1,4 @@
-const {user,todoItem,todoList} = require('./models')
+const {user,todoItem,todoList, tag} = require('./models')
 
 const userWithList = async (id) => {
   try {
@@ -38,4 +38,18 @@ console.log(plainUser.todoLists[1].todoItems)
     console.log('error', e)
   }
 }
-userWithTasks(1)
+// userWithTasks(1)
+
+const ItemsWithTags = async () => {
+  try{
+const items = await todoItem.findAll({
+  include : [tag]
+}) 
+const plainItem = items.map(item => item.get({plain:true}))
+console.log(plainItem[1].tags)
+
+  }catch(e) {
+    console.log('error', e)
+  }
+}
+ItemsWithTags()
