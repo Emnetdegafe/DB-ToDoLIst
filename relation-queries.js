@@ -30,7 +30,7 @@ console.log(ImportantItem.map((item) => item.get({plain:true}))
 const userWithTasks = async (id) => {
   try {
 const userById = await user.findByPk(id, {
-  include: [{model:todoList , include: [{model:todoItem, attribute: ["tasks"]}]}]
+  include: [{model:todoList ,attributes:["name"], include: {model:todoItem, attribute: ["tasks"]}}]
 }) 
 const plainUser = userById.get({plain:true})
 console.log(plainUser.todoLists[1].todoItems)
